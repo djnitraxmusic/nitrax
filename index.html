@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="theme-color" content="#0b0b10" />
   <title>@DjNitrax – Links</title>
-  <meta name="description" content="NRW | Festivals & Clubs · Tickets • Merch • Socials" />
+  <meta name="description" content="NRW | Festivals &amp; Clubs · Tickets • Merch • Socials" />
 
   <style>
     :root{
@@ -51,8 +51,7 @@
       width: 92px;
       height: 92px;
       border-radius: 999px;
-      background:
-        linear-gradient(135deg, rgba(0,255,204,.35), rgba(156,55,255,.35), rgba(255,0,128,.25));
+      background: linear-gradient(135deg, rgba(0,255,204,.35), rgba(156,55,255,.35), rgba(255,0,128,.25));
       border: 1px solid var(--stroke);
       box-shadow: var(--shadow);
       position:relative;
@@ -68,18 +67,8 @@
     }
     @keyframes spin{ to{ transform: rotate(360deg); } }
 
-    .handle{
-      font-size: 26px;
-      line-height: 1.1;
-      margin:0;
-      letter-spacing: .2px;
-    }
-    .bio{
-      margin:0;
-      color: var(--muted);
-      font-size: 14px;
-      line-height: 1.35;
-    }
+    .handle{ font-size: 26px; line-height: 1.1; margin:0; letter-spacing: .2px; }
+    .bio{ margin:0; color: var(--muted); font-size: 14px; line-height: 1.35; }
 
     .socials{
       display:flex;
@@ -91,4 +80,140 @@
     .sbtn{
       width: 46px;
       height: 46px;
-      border-radiu
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      text-decoration:none;
+    }
+    .sbtn:hover{ transform: translateY(-1px); background: rgba(255,255,255,.10); border-color: rgba(255,255,255,.20); }
+    .sbtn:active{ transform: translateY(0px) scale(.98); }
+    .sbtn svg{ width: 20px; height: 20px; opacity:.92; }
+
+    .intro{
+      margin: 6px 6px 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
+    .section{ margin-top: 14px; }
+    .h3{
+      margin: 22px 6px 12px;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+    }
+
+    .list{ display:grid; gap: 10px; }
+
+    .link{
+      display:grid;
+      grid-template-columns: 56px 1fr auto;
+      align-items:center;
+      gap: 12px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 12px 34px rgba(0,0,0,.35);
+      text-decoration:none;
+      color: var(--text);
+      min-height: 58px;
+    }
+
+    .lthumb{
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+    }
+    .lthumb img{ width:100%; height:100%; object-fit:cover; }
+
+    .lthumb.video{ position:relative; }
+    .lthumb.video .play{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      font-size:22px;
+      background: rgba(0,0,0,.35);
+      color:#fff;
+    }
+
+    .lt{ text-align:center; }
+    .lt strong{ display:block; font-size:15px; font-weight:650; }
+    .lt span{ font-size:12.5px; color:var(--muted); }
+
+    .rside{ display:flex; gap:10px; align-items:center; }
+    .badge{
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:999px;
+      background: rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.28);
+      letter-spacing:.08em;
+    }
+    .arr{ font-size:18px; opacity:.7; }
+
+    footer{
+      margin-top:22px;
+      text-align:center;
+      font-size:12.5px;
+      color:var(--muted);
+    }
+  </style>
+</head>
+
+<body>
+<main class="wrap">
+
+<header class="profile">
+  <div class="avatar"></div>
+  <h1 class="handle">@DjNitrax</h1>
+  <p class="bio">NRW | Festivals &amp; Clubs<br>Tickets • Merch • Socials</p>
+</header>
+
+<nav class="socials">
+  <!-- Social Icons bleiben wie besprochen -->
+</nav>
+
+<div class="intro">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+</div>
+
+<section class="section">
+  <div class="h3">District Moers</div>
+  <div class="list">
+
+    <a class="link" href="#">
+      <div class="lthumb"><img src="https://placehold.co/88x88?text=DM"></div>
+      <div class="lt"><strong>District Moers 20.03.26</strong><span>Ticketshop</span></div>
+      <div class="rside"><span class="arr">↗</span></div>
+    </a>
+
+    <a class="link vlog" href="#">
+      <div class="lthumb video">
+        <img src="https://placehold.co/88x88?text=VIDEO">
+        <span class="play">▶</span>
+      </div>
+      <div class="lt"><strong>VLOG: Nitrax @ District Moers</strong><span>TikTok Video</span></div>
+      <div class="rside"><span class="badge">VIDEO</span><span class="arr">↗</span></div>
+    </a>
+
+  </div>
+</section>
+
+<footer>
+  <a href="/impressum/">Impressum &amp; Datenschutz</a>
+</footer>
+
+</main>
+</body>
+</html>
