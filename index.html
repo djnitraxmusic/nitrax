@@ -1,316 +1,83 @@
 <!doctype html>
 <html lang="de">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>DJ Nitrax – Links</title>
-  <meta name="description" content="DJ Nitrax · NRW · Festivals & Clubs">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#0b0b10" />
+  <title>@DjNitrax – Links</title>
+  <meta name="description" content="NRW | Festivals & Clubs · Tickets • Merch • Socials" />
 
   <style>
     :root{
-      --bg:#0a0a12;
-      --card:#151520;
-      --accent1:#00ffd0;
-      --accent2:#9c4bff;
-      --accent3:#ff2a7a;
-      --text:#ffffff;
-      --muted:#b8b8c8;
-      --radius:18px;
-      --shadow:0 20px 60px rgba(0,0,0,.6);
+      --bg:#0b0b10;
+      --panel: rgba(255,255,255,.06);
+      --panel2: rgba(255,255,255,.085);
+      --stroke: rgba(255,255,255,.14);
+      --text: rgba(255,255,255,.92);
+      --muted: rgba(255,255,255,.68);
+      --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --r: 22px;
+      --r2: 16px;
+      --max: 680px;
     }
 
-    *{box-sizing:border-box}
-
+    *{ box-sizing:border-box; }
+    html,body{ height:100%; }
     body{
       margin:0;
-      min-height:100vh;
-      font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
       color:var(--text);
       background:
-        radial-gradient(800px 400px at 10% 10%, rgba(0,255,208,.15), transparent 60%),
-        radial-gradient(800px 400px at 90% 20%, rgba(156,75,255,.18), transparent 60%),
-        radial-gradient(600px 400px at 50% 90%, rgba(255,42,122,.15), transparent 60%),
+        radial-gradient(1000px 700px at 15% 10%, rgba(156,55,255,.18), transparent 55%),
+        radial-gradient(900px 600px at 85% 15%, rgba(0,255,204,.14), transparent 55%),
+        radial-gradient(900px 700px at 50% 110%, rgba(255,0,128,.12), transparent 55%),
         var(--bg);
     }
 
-    main{
-      max-width:720px;
-      margin:0 auto;
-      padding:32px 16px 48px;
-      position:relative;
-      z-index:1;
+    /* leichter “Linktree”-Cleaner Look: weniger Nebel, mehr Fokus */
+    .wrap{
+      width: min(var(--max), calc(100% - 26px));
+      margin: 0 auto;
+      padding: 26px 0 44px;
     }
 
-    /* Header */
-    .header{
+    /* Top/Profile (zentriert wie Linktree) */
+    .profile{
       display:flex;
+      flex-direction:column;
       align-items:center;
-      gap:16px;
-      margin-bottom:28px;
+      text-align:center;
+      gap:10px;
+      margin-bottom: 18px;
     }
 
     .avatar{
-      width:64px;
-      height:64px;
-      border-radius:16px;
-      background:linear-gradient(135deg,var(--accent1),var(--accent2),var(--accent3));
-      box-shadow:var(--shadow);
-    }
-
-    h1{
-      margin:0;
-      font-size:26px;
-      letter-spacing:.3px;
-    }
-
-    .subtitle{
-      color:var(--muted);
-      font-size:14px;
-      margin-top:4px;
-    }
-
-    /* Cards */
-    .card{
-      background:linear-gradient(180deg,rgba(255,255,255,.06),rgba(255,255,255,.03));
-      border:1px solid rgba(255,255,255,.08);
-      border-radius:var(--radius);
-      box-shadow:var(--shadow);
-      margin-bottom:22px;
+      width: 92px;
+      height: 92px;
+      border-radius: 999px;
+      background:
+        linear-gradient(135deg, rgba(0,255,204,.35), rgba(156,55,255,.35), rgba(255,0,128,.25));
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow);
+      position:relative;
       overflow:hidden;
     }
+    .avatar::after{
+      content:"";
+      position:absolute; inset:-35%;
+      background: conic-gradient(from 90deg, rgba(255,255,255,0), rgba(255,255,255,.22), rgba(255,255,255,0));
+      animation: spin 3.6s linear infinite;
+      opacity:.5;
+    }
+    @keyframes spin{ to{ transform: rotate(360deg); } }
 
-    .card h2{
+    .handle{
+      font-size: 26px;
+      line-height: 1.1;
       margin:0;
-      padding:14px 18px;
-      font-size:13px;
-      letter-spacing:.15em;
-      text-transform:uppercase;
-      color:#d6d6ff;
-      background:rgba(255,255,255,.03);
+      letter-spacing: .2px;
     }
-
-    .links{
-      padding:12px;
-      display:flex;
-      flex-direction:column;
-      gap:10px;
-    }
-
-    .link{
-      display:flex;
-      align-items:center;
-      justify-content:space-between;
-      gap:12px;
-      padding:14px 16px;
-      border-radius:14px;
-      text-decoration:none;
-      color:var(--text);
-      background:rgba(255,255,255,.06);
-      border:1px solid rgba(255,255,255,.08);
-      transition:.15s ease;
-    }
-
-    .link:hover{
-      transform:translateY(-2px);
-      background:rgba(255,255,255,.1);
-      border-color:rgba(255,255,255,.18);
-    }
-
-    .left{
-      display:flex;
-      align-items:center;
-      gap:12px;
-    }
-
-    .icon{
-      width:42px;
-      height:42px;
-      border-radius:12px;
-      background:rgba(255,255,255,.08);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      font-size:20px;
-    }
-
-    .text strong{
-      display:block;
-      font-size:15px;
-    }
-
-    .text span{
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    .arrow{
-      opacity:.6;
-      font-size:18px;
-    }
-
-    footer{
-      text-align:center;
-      margin-top:32px;
-      font-size:12px;
-      color:var(--muted);
-    }
-
-    footer a{
-      color:#cfcfff;
-      text-decoration:none;
-    }
-
-    footer a:hover{
-      text-decoration:underline;
-    }
-  </style>
-</head>
-
-<body>
-<main>
-
-  <!-- Header -->
-  <div class="header">
-    <div class="avatar"></div>
-    <div>
-      <h1>DJ Nitrax</h1>
-      <div class="subtitle">NRW · Festivals & Clubs</div>
-    </div>
-  </div>
-
-  <!-- Socials -->
-  <div class="card">
-    <h2>Socials</h2>
-    <div class="links">
-      <a class="link" href="https://instagram.com/DjNitrax" target="_blank">
-        <div class="left">
-          <div class="icon">📸</div>
-          <div class="text">
-            <strong>Instagram</strong>
-            <span>@DjNitrax</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-
-      <a class="link" href="https://tiktok.com/@dj.nitrax" target="_blank">
-        <div class="left">
-          <div class="icon">🎥</div>
-          <div class="text">
-            <strong>TikTok</strong>
-            <span>@dj.nitrax</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-
-      <a class="link" href="https://www.twitch.tv/nitrax_music" target="_blank">
-        <div class="left">
-          <div class="icon">🟪</div>
-          <div class="text">
-            <strong>Twitch</strong>
-            <span>nitrax_music</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-
-      <a class="link" href="https://www.snapchat.com/add/alexnitrax" target="_blank">
-        <div class="left">
-          <div class="icon">👻</div>
-          <div class="text">
-            <strong>Snapchat</strong>
-            <span>alexnitrax</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- District Moers -->
-  <div class="card">
-    <h2>District Moers</h2>
-    <div class="links">
-      <a class="link" href="https://bollwerk107.reservix.de/tickets-district-moers-vol-2-district-moers-vol2-in-moers-bollwerk-107-am-20-3-2026/e2502718" target="_blank">
-        <div class="left">
-          <div class="icon">🎟️</div>
-          <div class="text">
-            <strong>District Moers · 20.03.26</strong>
-            <span>Tickets (Phase 2)</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-
-      <a class="link" href="https://districtmoers.pixieset.com/districtmoers/" target="_blank">
-        <div class="left">
-          <div class="icon">🖼️</div>
-          <div class="text">
-            <strong>Fotogalerie</strong>
-            <span>Pixieset</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-
-      <a class="link" href="https://snash.com/collections/nitrax" target="_blank">
-        <div class="left">
-          <div class="icon">🛍️</div>
-          <div class="text">
-            <strong>Nitrax Merch</strong>
-            <span>Jetzt bestellen</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Favorites -->
-  <div class="card">
-    <h2>Lieblings Festivals & Clubs</h2>
-    <div class="links">
-      <a class="link" href="https://heavenandhill.ticket.io/evrtp2by/" target="_blank">
-        <div class="left">
-          <div class="icon">🌄</div>
-          <div class="text">
-            <strong>Heaven & Hill · 06.06.26</strong>
-            <span>Ticketshop</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-
-      <a class="link" href="https://www.e-dry.de/events" target="_blank">
-        <div class="left">
-          <div class="icon">🏛️</div>
-          <div class="text">
-            <strong>Resident @ E-DRY Geldern</strong>
-            <span>Alle Events</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-
-      <a class="link" href="https://amphoria-kevelaer.de/" target="_blank">
-        <div class="left">
-          <div class="icon">⚡</div>
-          <div class="text">
-            <strong>Amphoria Kevelaer</strong>
-            <span>Tickets & Infos</span>
-          </div>
-        </div>
-        <div class="arrow">↗</div>
-      </a>
-    </div>
-  </div>
-
-  <!-- Footer -->
-  <footer>
-    © 2025 DJ Nitrax · <a href="/impressum/">Impressum & Datenschutz</a>
-  </footer>
-
-</main>
-</body>
-</html>
+    .bio{
+      margin:0;
+      color: var(--muted);
+      font
