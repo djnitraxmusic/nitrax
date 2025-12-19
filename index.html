@@ -80,4 +80,217 @@
     .bio{
       margin:0;
       color: var(--muted);
-      font
+      font-size: 14px;
+      line-height: 1.35;
+    }
+
+    /* Social Row (wie Linktree: runde Icon-Buttons) */
+    .socials{
+      display:flex;
+      justify-content:center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin: 14px 0 18px;
+    }
+    .sbtn{
+      width: 46px;
+      height: 46px;
+      border-radius: 999px;
+      display:grid;
+      place-items:center;
+      background: rgba(255,255,255,.06);
+      border:1px solid rgba(255,255,255,.12);
+      box-shadow: 0 10px 30px rgba(0,0,0,.35);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      text-decoration:none;
+    }
+    .sbtn:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.20);
+    }
+    .sbtn:active{ transform: translateY(0px) scale(.98); }
+
+    .sbtn svg{ width: 20px; height: 20px; opacity:.92; }
+
+    /* Sections + Buttons */
+    .section{
+      margin-top: 14px;
+    }
+    .h3{
+      margin: 18px 6px 10px;
+      font-size: 13px;
+      letter-spacing: .14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.72);
+    }
+
+    .list{
+      display:grid;
+      gap: 10px;
+    }
+
+    /* Linktree-like big rounded buttons */
+    .link{
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap: 12px;
+      padding: 14px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.06);
+      border: 1px solid rgba(255,255,255,.12);
+      box-shadow: 0 12px 34px rgba(0,0,0,.35);
+      text-decoration:none;
+      color: var(--text);
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+      min-height: 54px;
+    }
+    .link:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.22);
+    }
+    .link:active{ transform: translateY(0px) scale(.995); }
+
+    .lt{
+      display:flex;
+      flex-direction:column;
+      gap:2px;
+      min-width:0;
+    }
+    .lt strong{
+      font-size: 15px;
+      font-weight: 650;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .lt span{
+      font-size: 12.5px;
+      color: var(--muted);
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .arr{
+      opacity:.72;
+      flex: 0 0 auto;
+      font-size: 18px;
+    }
+
+    /* Featured card (für Merch: Bild + Text wie Linktree Preview) */
+    .featured{
+      border-radius: var(--r);
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+      text-decoration:none;
+      color: var(--text);
+      display:flex;
+      gap: 14px;
+      padding: 12px;
+      transition: transform .12s ease, background .12s ease, border-color .12s ease;
+    }
+    .featured:hover{
+      transform: translateY(-1px);
+      background: rgba(255,255,255,.10);
+      border-color: rgba(255,255,255,.22);
+    }
+    .thumb{
+      width: 92px;
+      height: 92px;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      flex: 0 0 auto;
+    }
+    .thumb img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+    .ftext{
+      display:flex;
+      flex-direction:column;
+      justify-content:center;
+      gap: 6px;
+      min-width: 0;
+      padding-right: 4px;
+    }
+    .ftext strong{
+      font-size: 16px;
+      white-space:nowrap;
+      overflow:hidden;
+      text-overflow:ellipsis;
+    }
+    .ftext span{
+      font-size: 12.5px;
+      color: var(--muted);
+      line-height: 1.35;
+      display:-webkit-box;
+      -webkit-line-clamp: 2;
+      -webkit-box-orient: vertical;
+      overflow:hidden;
+    }
+    .fmeta{
+      margin-top: 2px;
+      font-size: 12px;
+      color: rgba(255,255,255,.78);
+      opacity:.9;
+    }
+
+    footer{
+      margin-top: 22px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 12.5px;
+    }
+    footer a{
+      color: rgba(255,255,255,.80);
+      text-decoration:none;
+    }
+    footer a:hover{ text-decoration:underline; }
+  </style>
+</head>
+
+<body>
+  <main class="wrap">
+
+    <!-- Profile (zentriert wie Linktree) -->
+    <header class="profile">
+      <div class="avatar" aria-hidden="true"></div>
+      <h1 class="handle">@DjNitrax</h1>
+      <p class="bio">NRW | Festivals &amp; Clubs<br/>Tickets • Merch • Socials</p>
+    </header>
+
+    <!-- Social icons row -->
+    <nav class="socials" aria-label="Social Links">
+      <a class="sbtn" href="https://instagram.com/DjNitrax" target="_blank" rel="noopener" aria-label="Instagram">
+        <!-- Instagram -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8"/>
+          <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8"/>
+          <path d="M17.5 6.5h.01" stroke="rgba(255,255,255,.92)" stroke-width="3" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a class="sbtn" href="https://tiktok.com/@dj.nitrax" target="_blank" rel="noopener" aria-label="TikTok">
+        <!-- simple note icon -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M14 3v10.2a3.8 3.8 0 1 1-2-3.4V6.2c1.3 2.2 3.3 3.5 6 3.8V12c-2.7-.3-4.7-1.6-6-3.6v7.4a5.8 5.8 0 1 1-2-4.6V3h4Z" fill="rgba(255,255,255,.92)"/>
+        </svg>
+      </a>
+
+      <a class="sbtn" href="https://www.twitch.tv/nitrax_music" target="_blank" rel="noopener" aria-label="Twitch">
+        <!-- Twitch-ish bubble -->
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 3h18v11l-5 5h-5l-3 2H7v-2H4V3Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8" stroke-linejoin="round"/>
+          <path d="M15 7v5M18 7v5" stroke="rgba(255,255,255,.92)" stroke-width="1.8" stroke-linecap="round"/>
+        </svg>
+      </a>
+
+      <a class="sbtn" href="https://www.snapchat.com/add/alexnitrax" target="_blank" rel="noopener" aria-label_
