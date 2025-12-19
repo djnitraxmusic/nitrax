@@ -10,15 +10,13 @@
   <style>
     :root{
       --bg:#0b0b10;
-      --panel: rgba(255,255,255,.06);
-      --panel2: rgba(255,255,255,.085);
-      --stroke: rgba(255,255,255,.14);
       --text: rgba(255,255,255,.92);
       --muted: rgba(255,255,255,.68);
+      --stroke: rgba(255,255,255,.14);
       --shadow: 0 18px 55px rgba(0,0,0,.55);
+      --max: 680px;
       --r: 22px;
       --r2: 16px;
-      --max: 680px;
     }
 
     *{ box-sizing:border-box; }
@@ -34,14 +32,13 @@
         var(--bg);
     }
 
-    /* leichter “Linktree”-Cleaner Look: weniger Nebel, mehr Fokus */
     .wrap{
       width: min(var(--max), calc(100% - 26px));
       margin: 0 auto;
       padding: 26px 0 44px;
     }
 
-    /* Top/Profile (zentriert wie Linktree) */
+    /* Profile (zentriert wie Linktree) */
     .profile{
       display:flex;
       flex-direction:column;
@@ -84,7 +81,7 @@
       line-height: 1.35;
     }
 
-    /* Social Row (wie Linktree: runde Icon-Buttons) */
+    /* Social icons row */
     .socials{
       display:flex;
       justify-content:center;
@@ -110,13 +107,10 @@
       border-color: rgba(255,255,255,.20);
     }
     .sbtn:active{ transform: translateY(0px) scale(.98); }
-
     .sbtn svg{ width: 20px; height: 20px; opacity:.92; }
 
-    /* Sections + Buttons */
-    .section{
-      margin-top: 14px;
-    }
+    /* Sections + Linktree-like buttons */
+    .section{ margin-top: 14px; }
     .h3{
       margin: 18px 6px 10px;
       font-size: 13px;
@@ -124,13 +118,8 @@
       text-transform: uppercase;
       color: rgba(255,255,255,.72);
     }
+    .list{ display:grid; gap: 10px; }
 
-    .list{
-      display:grid;
-      gap: 10px;
-    }
-
-    /* Linktree-like big rounded buttons */
     .link{
       display:flex;
       align-items:center;
@@ -173,13 +162,9 @@
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .arr{
-      opacity:.72;
-      flex: 0 0 auto;
-      font-size: 18px;
-    }
+    .arr{ opacity:.72; flex:0 0 auto; font-size: 18px; }
 
-    /* Featured card (für Merch: Bild + Text wie Linktree Preview) */
+    /* Featured card (Merch mit Bild) */
     .featured{
       border-radius: var(--r);
       overflow:hidden;
@@ -260,17 +245,14 @@
 <body>
   <main class="wrap">
 
-    <!-- Profile (zentriert wie Linktree) -->
     <header class="profile">
       <div class="avatar" aria-hidden="true"></div>
       <h1 class="handle">@DjNitrax</h1>
       <p class="bio">NRW | Festivals &amp; Clubs<br/>Tickets • Merch • Socials</p>
     </header>
 
-    <!-- Social icons row -->
     <nav class="socials" aria-label="Social Links">
       <a class="sbtn" href="https://instagram.com/DjNitrax" target="_blank" rel="noopener" aria-label="Instagram">
-        <!-- Instagram -->
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8"/>
           <path d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8"/>
@@ -279,18 +261,102 @@
       </a>
 
       <a class="sbtn" href="https://tiktok.com/@dj.nitrax" target="_blank" rel="noopener" aria-label="TikTok">
-        <!-- simple note icon -->
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M14 3v10.2a3.8 3.8 0 1 1-2-3.4V6.2c1.3 2.2 3.3 3.5 6 3.8V12c-2.7-.3-4.7-1.6-6-3.6v7.4a5.8 5.8 0 1 1-2-4.6V3h4Z" fill="rgba(255,255,255,.92)"/>
         </svg>
       </a>
 
       <a class="sbtn" href="https://www.twitch.tv/nitrax_music" target="_blank" rel="noopener" aria-label="Twitch">
-        <!-- Twitch-ish bubble -->
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M4 3h18v11l-5 5h-5l-3 2H7v-2H4V3Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8" stroke-linejoin="round"/>
           <path d="M15 7v5M18 7v5" stroke="rgba(255,255,255,.92)" stroke-width="1.8" stroke-linecap="round"/>
         </svg>
       </a>
 
-      <a class="sbtn" href="https://www.snapchat.com/add/alexnitrax" target="_blank" rel="noopener" aria-label_
+      <a class="sbtn" href="https://www.snapchat.com/add/alexnitrax" target="_blank" rel="noopener" aria-label="Snapchat">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M12 3c3.2 0 5.6 2.6 5.6 5.9v1.7c.6.6 1.6 1 2.3 1.2.4.1.6.5.4.9-.4.8-1.5 1.1-2.3 1.3-.4.1-.6.4-.5.8.2.8 1.2 1.4 1.9 1.7.4.2.5.7.2 1-.6.6-2 .5-2.8.2-.5-.2-1 .1-1.2.6-.6 1.4-1.9 2.3-3.6 2.3s-3-.9-3.6-2.3c-.2-.5-.7-.8-1.2-.6-.8.3-2.2.4-2.8-.2-.3-.3-.2-.8.2-1 .7-.3 1.7-.9 1.9-1.7.1-.4-.1-.7-.5-.8-.8-.2-1.9-.5-2.3-1.3-.2-.4 0-.8.4-.9.7-.2 1.7-.6 2.3-1.2V8.9C6.4 5.6 8.8 3 12 3Z" fill="rgba(255,255,255,.92)"/>
+        </svg>
+      </a>
+
+      <!-- WICHTIG: hier deine echte Mail einsetzen -->
+      <a class="sbtn" href="mailto:EMAIL_HIER@DOMAIN.DE" aria-label="Email">
+        <svg viewBox="0 0 24 24" fill="none">
+          <path d="M4 6h16v12H4V6Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8"/>
+          <path d="m4 7 8 6 8-6" stroke="rgba(255,255,255,.92)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+      </a>
+    </nav>
+
+    <section class="section">
+      <div class="h3">District Moers</div>
+      <div class="list">
+        <a class="link" href="https://bollwerk107.reservix.de/tickets-district-moers-vol-2-district-moers-vol2-in-moers-bollwerk-107-am-20-3-2026/e2502718" target="_blank" rel="noopener">
+          <div class="lt">
+            <strong>District Moers 20.03.26</strong>
+            <span>Ticketshop (Phase 2)</span>
+          </div>
+          <div class="arr">↗</div>
+        </a>
+
+        <a class="link" href="https://districtmoers.pixieset.com/districtmoers/" target="_blank" rel="noopener">
+          <div class="lt">
+            <strong>District Moers Fotobibliothek</strong>
+            <span>Pixieset Galerie</span>
+          </div>
+          <div class="arr">↗</div>
+        </a>
+
+        <a class="featured" href="https://snash.com/collections/nitrax" target="_blank" rel="noopener">
+          <div class="thumb" aria-hidden="true">
+            <img
+              src="https://snash.com/cdn/shop/files/2025_Nitrax_Zipper_blue_back.jpg?v=1759403065&width=512"
+              alt="Nitrax Merch Preview"
+              loading="lazy"
+            />
+          </div>
+          <div class="ftext">
+            <strong>Nitrax-Merch</strong>
+            <span>Hoodies, Shirts, Gymbag & mehr – direkt bei Snash bestellen.</span>
+            <div class="fmeta">Shop öffnen ↗</div>
+          </div>
+        </a>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="h3">Lieblings Festivals &amp; Clubs ♥️</div>
+      <div class="list">
+        <a class="link" href="https://heavenandhill.ticket.io/evrtp2by/" target="_blank" rel="noopener">
+          <div class="lt">
+            <strong>Heaven &amp; Hill 06.06.26</strong>
+            <span>Ticketshop</span>
+          </div>
+          <div class="arr">↗</div>
+        </a>
+
+        <a class="link" href="https://www.e-dry.de/events" target="_blank" rel="noopener">
+          <div class="lt">
+            <strong>Resident @ E-DRY Geldern</strong>
+            <span>Alle Events</span>
+          </div>
+          <div class="arr">↗</div>
+        </a>
+
+        <a class="link" href="https://amphoria-kevelaer.de/" target="_blank" rel="noopener">
+          <div class="lt">
+            <strong>Amphoria Kevelaer</strong>
+            <span>Tickets</span>
+          </div>
+          <div class="arr">↗</div>
+        </a>
+      </div>
+    </section>
+
+    <footer>
+      <a href="/impressum/" rel="nofollow">Impressum &amp; Datenschutz</a>
+    </footer>
+
+  </main>
+</body>
+</html>
