@@ -16,11 +16,11 @@
       --shadow: 0 18px 55px rgba(0,0,0,.55);
       --max: 680px;
       --r: 22px;
-      --r2: 16px;
     }
 
     *{ box-sizing:border-box; }
     html,body{ height:100%; }
+
     body{
       margin:0;
       font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
@@ -38,7 +38,6 @@
       padding: 26px 0 44px;
     }
 
-    /* Profile (zentriert wie Linktree) */
     .profile{
       display:flex;
       flex-direction:column;
@@ -61,7 +60,8 @@
     }
     .avatar::after{
       content:"";
-      position:absolute; inset:-35%;
+      position:absolute;
+      inset:-35%;
       background: conic-gradient(from 90deg, rgba(255,255,255,0), rgba(255,255,255,.22), rgba(255,255,255,0));
       animation: spin 3.6s linear infinite;
       opacity:.5;
@@ -81,7 +81,6 @@
       line-height: 1.35;
     }
 
-    /* Social icons row */
     .socials{
       display:flex;
       justify-content:center;
@@ -109,23 +108,34 @@
     .sbtn:active{ transform: translateY(0px) scale(.98); }
     .sbtn svg{ width: 20px; height: 20px; opacity:.92; }
 
-    /* Sections + Linktree-like buttons */
+    .intro{
+      margin: 6px 6px 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.45;
+    }
+
     .section{ margin-top: 14px; }
+    .section .h3:first-child{ margin-top: 0; }
+
     .h3{
-      margin: 18px 6px 10px;
+      margin: 22px 6px 12px;
       font-size: 13px;
       letter-spacing: .14em;
       text-transform: uppercase;
       color: rgba(255,255,255,.72);
     }
+
     .list{ display:grid; gap: 10px; }
 
     .link{
+      position: relative;
       display:flex;
       align-items:center;
-      justify-content:space-between;
+      justify-content:flex-start;
       gap: 12px;
-      padding: 14px 16px;
+      padding: 12px 16px;
       border-radius: 999px;
       background: rgba(255,255,255,.06);
       border: 1px solid rgba(255,255,255,.12);
@@ -133,7 +143,7 @@
       text-decoration:none;
       color: var(--text);
       transition: transform .12s ease, background .12s ease, border-color .12s ease;
-      min-height: 54px;
+      min-height: 58px;
     }
     .link:hover{
       transform: translateY(-1px);
@@ -142,11 +152,67 @@
     }
     .link:active{ transform: translateY(0px) scale(.995); }
 
+    .lleft{
+      display:flex;
+      align-items:center;
+      gap: 12px;
+      min-width: 0;
+      width: 100%;
+    }
+
+    .lthumb{
+      width: 56px;
+      height: 56px;
+      border-radius: 16px;
+      overflow:hidden;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+      flex: 0 0 auto;
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+    }
+    .lthumb img{
+      width:100%;
+      height:100%;
+      object-fit: cover;
+      display:block;
+    }
+
+    .lthumb.video{ position:relative; }
+    .lthumb.video .play{
+      position:absolute;
+      inset:0;
+      display:grid;
+      place-items:center;
+      font-size:22px;
+      background: rgba(0,0,0,.35);
+      color:#fff;
+      border-radius:16px;
+    }
+
+    .badge.video{
+      position:absolute;
+      right:48px;
+      top:50%;
+      transform: translateY(-50%);
+      font-size:11px;
+      padding:4px 8px;
+      border-radius:999px;
+      background: rgba(255,255,255,.14);
+      border:1px solid rgba(255,255,255,.28);
+      letter-spacing:.08em;
+      color: rgba(255,255,255,.92);
+    }
+
     .lt{
+      position:absolute;
+      left: 50%;
+      transform: translateX(-50%);
       display:flex;
       flex-direction:column;
       gap:2px;
       min-width:0;
+      text-align:center;
+      pointer-events:none;
     }
     .lt strong{
       font-size: 15px;
@@ -162,9 +228,14 @@
       overflow:hidden;
       text-overflow:ellipsis;
     }
-    .arr{ opacity:.72; flex:0 0 auto; font-size: 18px; }
 
-    /* Featured card (Merch mit Bild) */
+    .arr{
+      position:absolute;
+      right: 16px;
+      opacity:.72;
+      font-size: 18px;
+    }
+
     .featured{
       border-radius: var(--r);
       overflow:hidden;
@@ -183,6 +254,7 @@
       background: rgba(255,255,255,.10);
       border-color: rgba(255,255,255,.22);
     }
+
     .thumb{
       width: 92px;
       height: 92px;
@@ -198,6 +270,7 @@
       object-fit: cover;
       display:block;
     }
+
     .ftext{
       display:flex;
       flex-direction:column;
@@ -262,7 +335,7 @@
 
       <a class="sbtn" href="https://tiktok.com/@dj.nitrax" target="_blank" rel="noopener" aria-label="TikTok">
         <svg viewBox="0 0 24 24" fill="none">
-          <path d="M14 3v10.2a3.8 3.8 0 1 1-2-3.4V6.2c1.3 2.2 3.3 3.5 6 3.8V12c-2.7-.3-4.7-1.6-6-3.6v7.4a5.8 5.8 0 1 1-2-4.6V3h4Z" fill="rgba(255,255,255,.92)"/>
+          <path d="M14 3c.3 2.4 1.8 4.7 4.6 4.9v3.1c-1.9-.1-3.5-.7-4.8-1.7v6.2c0 3.2-2.6 5.8-5.8 5.8S2.2 19 2.2 15.8 4.8 10 8 10c.5 0 1 .1 1.5.2v3.3c-.4-.2-.9-.3-1.5-.3-1.4 0-2.6 1.2-2.6 2.6S6.6 18.4 8 18.4s2.6-1.2 2.6-2.6V3h3.4Z" fill="rgba(255,255,255,.92)"/>
         </svg>
       </a>
 
@@ -274,13 +347,12 @@
       </a>
 
       <a class="sbtn" href="https://www.snapchat.com/add/alexnitrax" target="_blank" rel="noopener" aria-label="Snapchat">
-        <svg viewBox="0 0 24 24" fill="none">
-          <path d="M12 3c3.2 0 5.6 2.6 5.6 5.9v1.7c.6.6 1.6 1 2.3 1.2.4.1.6.5.4.9-.4.8-1.5 1.1-2.3 1.3-.4.1-.6.4-.5.8.2.8 1.2 1.4 1.9 1.7.4.2.5.7.2 1-.6.6-2 .5-2.8.2-.5-.2-1 .1-1.2.6-.6 1.4-1.9 2.3-3.6 2.3s-3-.9-3.6-2.3c-.2-.5-.7-.8-1.2-.6-.8.3-2.2.4-2.8-.2-.3-.3-.2-.8.2-1 .7-.3 1.7-.9 1.9-1.7.1-.4-.1-.7-.5-.8-.8-.2-1.9-.5-2.3-1.3-.2-.4 0-.8.4-.9.7-.2 1.7-.6 2.3-1.2V8.9C6.4 5.6 8.8 3 12 3Z" fill="rgba(255,255,255,.92)"/>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 16 16" fill="rgba(255,255,255,.92)">
+          <path d="M15.943 11.526c-.111-.303-.323-.465-.564-.599a1 1 0 0 0-.123-.064l-.219-.111c-.752-.399-1.339-.902-1.746-1.498a3.4 3.4 0 0 1-.3-.531c-.034-.1-.032-.156-.008-.207a.3.3 0 0 1 .097-.1c.129-.086.262-.173.352-.231.162-.104.289-.187.371-.245.309-.216.525-.446.66-.702a1.4 1.4 0 0 0 .069-1.16c-.205-.538-.713-.872-1.329-.872a1.8 1.8 0 0 0-.487.065c.006-.368-.002-.757-.035-1.139-.116-1.344-.587-2.048-1.077-2.61a4.3 4.3 0 0 0-1.095-.881C9.764.216 8.92 0 7.999 0s-1.76.216-2.505.641c-.412.232-.782.53-1.097.883-.49.562-.96 1.267-1.077 2.61-.033.382-.04.772-.036 1.138a1.8 1.8 0 0 0-.487-.065c-.615 0-1.124.335-1.328.873a1.4 1.4 0 0 0 .067 1.161c.136.256.352.486.66.701.082.058.21.14.371.246l.339.221a.4.4 0 0 1 .109.11c.026.053.027.11-.012.217a3.4 3.4 0 0 1-.295.52c-.398.583-.968 1.077-1.696 1.472-.385.204-.786.34-.955.8-.128.348-.044.743.28 1.075q.18.189.409.31a4.4 4.4 0 0 0 1 .4.7.7 0 0 1 .202.09c.118.104.102.26.259.488q.12.178.296.3c.33.229.701.243 1.095.258.355.014.758.03 1.217.18.19.064.389.186.618.328.55.338 1.305.802 2.566.802 1.262 0 2.02-.466 2.576-.806.227-.14.424-.26.609-.321.46-.152.863-.168 1.218-.181.393-.015.764-.03 1.095-.258a1.14 1.14 0 0 0 .336-.368c.114-.192.11-.327.217-.42a.6.6 0 0 1 .19-.087 4.5 4.5 0 0 0 1.014-.404c.16-.087.306-.2.429-.336l.004-.005c.304-.325.38-.709.256-1.047m-1.121.602c-.684.378-1.139.337-1.493.565-.3.193-.122.61-.34.76-.269.186-1.061-.012-2.085.326-.845.279-1.384 1.082-2.903 1.082s-2.045-.801-2.904-1.084c-1.022-.338-1.816-.14-2.084-.325-.218-.15-.041-.568-.341-.761-.354-.228-.809-.187-1.492-.563-.436-.24-.189-.39-.044-.46 2.478-1.199 2.873-3.05 2.89-3.188.022-.166.045-.297-.138-.466-.177-.164-.962-.65-1.18-.802-.36-.252-.52-.503-.402-.812.082-.214.281-.295.49-.295a1 1 0 0 1 .197.022c.396.086.78.285 1.002.338q.04.01.082.011c.118 0 .16-.06.152-.195-.026-.433-.087-1.277-.019-2.066.094-1.084.444-1.622.859-2.097.2-.229 1.137-1.22 2.93-1.22 1.792 0 2.732.987 2.931 1.215.416.475.766 1.013.859 2.098.068.788.009 1.632-.019 2.065-.01.142.034.195.152.195a.4.4 0 0 0 .082-.01c.222-.054.607-.253 1.002-.338a1 1 0 0 1 .197-.023c.21 0 .409.082.49.295.117.309-.04.56-.401.812-.218.152-1.003.638-1.18.802-.184.169-.16.3-.139.466.018.14.413 1.991 2.89 3.189.147.073.394.222 -.041.464"/>
         </svg>
       </a>
 
-      <!-- WICHTIG: hier deine echte Mail einsetzen -->
-      <a class="sbtn" href="mailto:EMAIL_HIER@DOMAIN.DE" aria-label="Email">
+      <a class="sbtn" href="mailto:booking@nitrax.de" aria-label="Email">
         <svg viewBox="0 0 24 24" fill="none">
           <path d="M4 6h16v12H4V6Z" stroke="rgba(255,255,255,.92)" stroke-width="1.8"/>
           <path d="m4 7 8 6 8-6" stroke="rgba(255,255,255,.92)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
@@ -288,25 +360,59 @@
       </a>
     </nav>
 
+    <div class="intro">
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    </div>
+
     <section class="section">
       <div class="h3">District Moers</div>
       <div class="list">
         <a class="link" href="https://bollwerk107.reservix.de/tickets-district-moers-vol-2-district-moers-vol2-in-moers-bollwerk-107-am-20-3-2026/e2502718" target="_blank" rel="noopener">
-          <div class="lt">
-            <strong>District Moers 20.03.26</strong>
-            <span>Ticketshop (Phase 2)</span>
+          <div class="lleft">
+            <div class="lthumb" aria-hidden="true">
+              <img src="https://placehold.co/88x88/png?text=DM" alt="" loading="lazy" />
+            </div>
+            <div class="lt">
+              <strong>District Moers 20.03.26</strong>
+              <span>Ticketshop (Phase 2)</span>
+            </div>
           </div>
           <div class="arr">↗</div>
+        </a>
+
+        <a class="link vlog" href="https://www.tiktok.com/@dj.nitrax" target="_blank" rel="noopener" aria-label="TikTok Video">
+          <div class="lleft">
+            <div class="lthumb video" aria-hidden="true">
+              <img src="https://ugc.production.linktr.ee/c12d0a78-165c-4e68-9dfd-d58eea7793fa_District-Moers-12.12.25-229.jpeg?io=true&size=thumbnail-stack_v1_0" alt="" loading="lazy" />
+              <span class="play" aria-hidden="true">▶</span>
+            </div>
+            <div class="lt">
+              <strong>VLOG: Nitrax @ District Moers</strong>
+              <span>TikTok Video</span>
+            </div>
+          </div>
+          <span class="badge video" aria-hidden="true">VIDEO</span>
+          <div class="arr" aria-hidden="true">↗</div>
         </a>
 
         <a class="link" href="https://districtmoers.pixieset.com/districtmoers/" target="_blank" rel="noopener">
-          <div class="lt">
-            <strong>District Moers Fotobibliothek</strong>
-            <span>Pixieset Galerie</span>
+          <div class="lleft">
+            <div class="lthumb" aria-hidden="true">
+              <img src="https://placehold.co/88x88/png?text=Fotos" alt="" loading="lazy" />
+            </div>
+            <div class="lt">
+              <strong>District Moers Fotobibliothek</strong>
+              <span>Pixieset Galerie</span>
+            </div>
           </div>
           <div class="arr">↗</div>
         </a>
+      </div>
+    </section>
 
+    <section class="section">
+      <div class="h3">Merchandise</div>
+      <div class="list">
         <a class="featured" href="https://snash.com/collections/nitrax" target="_blank" rel="noopener">
           <div class="thumb" aria-hidden="true">
             <img
@@ -317,7 +423,7 @@
           </div>
           <div class="ftext">
             <strong>Nitrax-Merch</strong>
-            <span>Hoodies, Shirts, Gymbag & mehr – direkt bei Snash bestellen.</span>
+            <span>Hoodies, Shirts, Gymbag &amp; mehr – direkt bei Snash bestellen.</span>
             <div class="fmeta">Shop öffnen ↗</div>
           </div>
         </a>
@@ -328,25 +434,40 @@
       <div class="h3">Lieblings Festivals &amp; Clubs ♥️</div>
       <div class="list">
         <a class="link" href="https://heavenandhill.ticket.io/evrtp2by/" target="_blank" rel="noopener">
-          <div class="lt">
-            <strong>Heaven &amp; Hill 06.06.26</strong>
-            <span>Ticketshop</span>
+          <div class="lleft">
+            <div class="lthumb" aria-hidden="true">
+              <img src="https://placehold.co/88x88/png?text=H%26H" alt="" loading="lazy" />
+            </div>
+            <div class="lt">
+              <strong>Heaven &amp; Hill 06.06.26</strong>
+              <span>Ticketshop</span>
+            </div>
           </div>
           <div class="arr">↗</div>
         </a>
 
         <a class="link" href="https://www.e-dry.de/events" target="_blank" rel="noopener">
-          <div class="lt">
-            <strong>Resident @ E-DRY Geldern</strong>
-            <span>Alle Events</span>
+          <div class="lleft">
+            <div class="lthumb" aria-hidden="true">
+              <img src="https://placehold.co/88x88/png?text=E-DRY" alt="" loading="lazy" />
+            </div>
+            <div class="lt">
+              <strong>Resident @ E-DRY Geldern</strong>
+              <span>Alle Events</span>
+            </div>
           </div>
           <div class="arr">↗</div>
         </a>
 
         <a class="link" href="https://amphoria-kevelaer.de/" target="_blank" rel="noopener">
-          <div class="lt">
-            <strong>Amphoria Kevelaer</strong>
-            <span>Tickets</span>
+          <div class="lleft">
+            <div class="lthumb" aria-hidden="true">
+              <img src="https://placehold.co/88x88/png?text=A" alt="" loading="lazy" />
+            </div>
+            <div class="lt">
+              <strong>Amphoria Kevelaer</strong>
+              <span>Tickets</span>
+            </div>
           </div>
           <div class="arr">↗</div>
         </a>
